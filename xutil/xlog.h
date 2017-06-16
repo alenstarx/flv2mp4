@@ -3,6 +3,7 @@
 
 #include <cstdarg>
 
+#if 0
 #define LOGD(fmt, ...) do { \
   xlog::log_print(__FILE__, __LINE__, xlog::DEBUG, fmt, ##__VA_ARGS__); \
 } while (0)
@@ -18,7 +19,9 @@
 #define LOGE(fmt, ...) do { \
   xlog::log_print(__FILE__, __LINE__, xlog::ERR, fmt, ##__VA_ARGS__); \
 } while (0)
-
+#else
+#include "log.h"
+#endif
 #include "xutil.h"
 
 using xutil::status_t;
